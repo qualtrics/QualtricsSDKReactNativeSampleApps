@@ -35,6 +35,14 @@
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }
+      ],
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "extraMavenRepos": ["https://s3-us-west-2.amazonaws.com/si-mobile-sdks/android/"]
+          }
+        }
       ]
     ],
     "experiments": {

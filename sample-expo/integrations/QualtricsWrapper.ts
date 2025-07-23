@@ -18,13 +18,6 @@ export const setProjectInfo = (info: QualtricsProjectInfo): void => {
 };
 
 /**
- * Get current project info
- */
-export const getProjectInfo = (): QualtricsProjectInfo | null => {
-  return projectInfo;
-};
-
-/**
  * Check if project is initialized
  */
 export const isInitialized = (): boolean => {
@@ -38,7 +31,7 @@ const ensureProjectInfoIsSet = (): void => {
   if (!projectInfo) {
     throw new Error(
       "Qualtrics is not configured properly. " +
-        "Call setProjectInfo() with your Brand ID and Project ID before using other methods."
+        "Configure your credentials in the constants/QualtricsConfig.ts file."
     );
   }
 };
@@ -53,7 +46,7 @@ export const initialize = async () => {
     return Promise.resolve({ success: true });
   }
 
-  return new Promise((resolve) => {
+  return new Promise((resolve, reject) => {
     console.log("Initializing Qualtrics...");
 
     Qualtrics.initializeProjectWithExtRefId(
@@ -62,9 +55,12 @@ export const initialize = async () => {
       projectInfo!.extRefId || "",
       (initializationResults) => {
         console.log("Qualtrics initialization results:", initializationResults);
-        isProjectInitialized = true;
-        console.log("Qualtrics initialization done");
-        resolve(initializationResults);
+        if (initializationResults.passed) {
+          isProjectInitialized = true;
+          resolve(initializationResults);
+        } else {
+          reject(new Error("Qualtrics initialization failed"));
+        }
       }
     );
   });
@@ -78,7 +74,7 @@ const ensureProjectIsInitialized = async (): Promise<void> => {
 
   if (!isProjectInitialized) {
     console.log("Project not initialized. Initializing...");
-    await initialize();
+    await initialize().catch(console.error);
   }
 };
 
@@ -97,15 +93,7 @@ export const evaluateAndDisplayProject = async (): Promise<void> => {
       }
     }
   });
-};
-
-/**
- * Initialize with project info in one call (convenience method)
- */
-export const initializeWithProjectInfo = async (info: QualtricsProjectInfo) => {
-  setProjectInfo(info);
-  return initialize();
-};
+}; 
 
 /**
  * Register a view visit for targeting logic

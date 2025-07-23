@@ -13,11 +13,7 @@ export default function RootLayout() {
   const colorScheme = useColorScheme();
   const pathname = usePathname();
 
-  // Initialize Qualtrics project as soon as the app is loaded
-  useEffect(() => {
-    Qualtrics.setProjectInfo(QualtricsProjectInfo);
-    Qualtrics.initialize().catch(console.error);
-  }, []);
+  Qualtrics.setProjectInfo(QualtricsProjectInfo);
 
   // Track the screen change and evaluate the project
   useEffect(() => {
@@ -25,7 +21,6 @@ export default function RootLayout() {
     Qualtrics.evaluateAndDisplayProject();
   }, [pathname]);
 
-  
   const [loaded] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
   });

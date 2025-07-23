@@ -83,7 +83,7 @@ const ensureProjectIsInitialized = async (): Promise<void> => {
 /**
  * Evaluate project and automatically display intercepts that pass targeting conditions
  */
-export const evaluateAndDisplayProject = async (): Promise<void> => {
+export const evaluateAndDisplayProject = async () => {
   await ensureProjectIsInitialized();
 
   Qualtrics.evaluateProject((targetingResults) => {
@@ -101,6 +101,5 @@ export const evaluateAndDisplayProject = async (): Promise<void> => {
  * Register a view visit for targeting logic
  */
 export const registerViewVisit = async (viewName: string): Promise<void> => {
-  await ensureProjectIsInitialized();
   Qualtrics.registerViewVisit(viewName);
 };

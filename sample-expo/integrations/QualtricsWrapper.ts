@@ -55,16 +55,18 @@ export const initialize = async () => {
       projectInfo!.extRefId || "",
       (initializationResults) => {
         console.log("Qualtrics initialization results:", initializationResults);
-        if (initializationResults.passed) {
+        for (let intercept in initializationResults) {
+          if (!initializationResults[intercept].passed) {
+            reject(new Error("Qualtrics initialization failed"));
+          }
           isProjectInitialized = true;
           resolve(initializationResults);
-        } else {
-          reject(new Error("Qualtrics initialization failed"));
         }
       }
     );
   });
 };
+
 
 /**
  * Ensure project is initialized before calling SDK methods

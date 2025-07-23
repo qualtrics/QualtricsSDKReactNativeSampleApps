@@ -6,7 +6,7 @@ import 'react-native-reanimated';
 
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { useEffect } from 'react';
-import * as Qualtrics from '@/utils/QualtricsWrapper';
+import * as Qualtrics from '@/integrations/QualtricsWrapper';
 
 
 export default function RootLayout() {

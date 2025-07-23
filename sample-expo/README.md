@@ -1,50 +1,58 @@
-# Welcome to your Expo app 👋
+# Qualtrics React Native Sample App (Expo)
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+This is a React Native Expo application demonstrating integration with the Qualtrics Mobile SDK for surveys and app feedback.
 
-## Get started
+## Quick Start
 
-1. Install dependencies
+1. **Install dependencies**
 
    ```bash
    npm install
    ```
 
-2. Start the app
+2. **Configure your Qualtrics project**
 
-   ```bash
-   npx expo start
+   Edit `app/_layout.tsx` and replace the placeholder values:
+
+   ```typescript
+   Qualtrics.setProjectInfo({
+     brandID: 'YOUR_BRAND_ID',      // From Qualtrics dashboard
+     projectID: 'YOUR_PROJECT_ID',   // From Qualtrics dashboard  
+     interceptID: 'YOUR_INTERCEPT_ID', // From your Mobile App Intercept
+     extRefId: '', // Optional
+   });
    ```
 
-In the output, you'll find options to open the app in a
+3. **Run the app**
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+   ```bash
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+   # Start development server
+   npx expo start
+   
+   # Run on iOS simulator
+   npx expo run:ios
+   
+   # Run on Android emulator  
+   npx expo run:android
+   ```
 
-## Get a fresh project
+## Key Files
 
-When you're ready, run:
+### `utils/QualtricsWrapper.ts`
 
-```bash
-npm run reset-project
-```
+TypeScript wrapper providing:
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+- Promise-based and callback-based APIs
+- Automatic initialization management
+- Type-safe interfaces
+- Error handling
 
-## Learn more
+### `app/_layout.tsx`
 
-To learn more about developing your project with Expo, look at the following resources:
+Root application layout that:
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- Configures Qualtrics project information
+- Initializes SDK on app start
+- Tracks route changes automatically
+- Triggers evaluation on screen visits

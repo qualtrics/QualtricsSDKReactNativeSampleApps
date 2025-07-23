@@ -47,21 +47,19 @@ export const initialize = async () => {
   }
 
   return new Promise((resolve, reject) => {
-    console.log("Initializing Qualtrics...");
-
     Qualtrics.initializeProjectWithExtRefId(
       projectInfo!.brandID,
       projectInfo!.projectID,
       projectInfo!.extRefId || "",
       (initializationResults) => {
         console.log("Qualtrics initialization results:", initializationResults);
-        for (let intercept in initializationResults) {
-          if (!initializationResults[intercept].passed) {
-            reject(new Error("Qualtrics initialization failed"));
-          }
-          isProjectInitialized = true;
-          resolve(initializationResults);
+        if (Object.values(initializationResults).some(result => !result.passed) || 
+            Object.keys(initializationResults).length === 0) {
+          reject(new Error("Qualtrics initialization failed"));
+          return;
         }
+        isProjectInitialized = true;
+        resolve(initializationResults);
       }
     );
   });

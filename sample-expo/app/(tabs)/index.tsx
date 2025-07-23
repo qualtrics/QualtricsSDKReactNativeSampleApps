@@ -22,12 +22,14 @@ export default function HomeScreen() {
       <ThemedView style={styles.stepContainer}>
         <ThemedText type="subtitle">Screen tracking & evaluation</ThemedText>
         <ThemedText>
-          In this sample all screen changes are tracked and the evaluation logic is triggered on each of them. 
+          In this sample all screen changes report the view visit and trigger the evaluation logic. 
         </ThemedText>        
       </ThemedView>
-
       <ThemedView style={styles.stepContainer}>
         <ThemedText type="subtitle">Testing Recommendation</ThemedText>
+        <ThemedText>
+          Setup your credentials in the <ThemedText type="link">constans/QualtricsConfig.ts</ThemedText> file.
+        </ThemedText>
         <ThemedText>
           We suggest testing the example applications using the Intercept with Display/Targeting Logic 
           set up to:

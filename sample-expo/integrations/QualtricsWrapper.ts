@@ -3,7 +3,6 @@ import Qualtrics from "react-native-qualtrics";
 export interface QualtricsProjectInfo {
   brandID: string;
   projectID: string;
-  interceptID: string;
   extRefId?: string;
 }
 

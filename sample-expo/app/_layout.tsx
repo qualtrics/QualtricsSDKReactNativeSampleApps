@@ -6,22 +6,16 @@ import 'react-native-reanimated';
 
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { useEffect } from 'react';
-import * as Qualtrics from '@/integrations/QualtricsWrapper';
-
+import * as Qualtrics from '@/integrations/QualtricsWrapper'; 
+import { QualtricsProjectInfo } from '@/constants/QualtricsConfig';
 
 export default function RootLayout() {
   const colorScheme = useColorScheme();
   const pathname = usePathname();
 
-  Qualtrics.setProjectInfo({
-    brandID: '', // Replace with your actual Brand ID
-    projectID: '', // Replace with your actual Project ID\
-    interceptID: '', // Replace with your actual Intercept ID
-    extRefId: '', // Optional external reference ID
-  });  
-
   // Initialize Qualtrics project as soon as the app is loaded
   useEffect(() => {
+    Qualtrics.setProjectInfo(QualtricsProjectInfo);
     Qualtrics.initialize().catch(console.error);
   }, []);
 

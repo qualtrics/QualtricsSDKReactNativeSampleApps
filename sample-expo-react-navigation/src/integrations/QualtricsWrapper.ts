@@ -79,7 +79,7 @@ const ensureProjectIsInitialized = async (): Promise<void> => {
 };
 
 /**
- * Evaluate project and automatically display intercepts that pass targeting conditions
+ * Evaluate project and automatically display intercepts that pass targeting conditions.
  * IMPORTANT: If a project is not initialized, this function will try to initialize it before evaluating.
  */
 export const evaluateAndDisplayProject = async () => {

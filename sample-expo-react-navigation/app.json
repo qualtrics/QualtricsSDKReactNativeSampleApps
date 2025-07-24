@@ -1,0 +1,45 @@
+{
+  "expo": {
+    "name": "sample-react-navigation-app",
+    "slug": "sample-react-navigation-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "scheme": "samplereactnavigationapp",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.qualtrics.samplereactnavigationapp"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.qualtrics.samplereactnavigationapp"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-asset",
+      [
+        "expo-splash-screen",
+        {
+          "backgroundColor": "#ffffff",
+          "image": "./assets/splash-icon.png"
+        }
+      ],
+      "react-native-edge-to-edge",
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "extraMavenRepos": ["https://s3-us-west-2.amazonaws.com/si-mobile-sdks/android/"]
+          }
+        }
+      ]
+    ]
+  }
+}

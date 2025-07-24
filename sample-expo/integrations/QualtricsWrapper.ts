@@ -98,6 +98,6 @@ export const evaluateAndDisplayProject = async () => {
 /**
  * Register a view visit for targeting logic
  */
-export const registerViewVisit = async (viewName: string): Promise<void> => {
+export const registerViewVisit = (viewName: string) => {
   Qualtrics.registerViewVisit(viewName);
 };

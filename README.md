@@ -4,6 +4,8 @@ In this repository you will find sample Apps with Qualtrics React Native SDK.
 
 ## Structure
 
+- **sample-expo/** - Expo Router SDK integration sample.
+- **sample-expo-react-navigation/** - Expo with React Navigation SDK integration sample.
 
 ## Setting up the Intercept
 

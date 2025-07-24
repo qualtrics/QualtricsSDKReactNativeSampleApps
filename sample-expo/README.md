@@ -38,14 +38,9 @@ This is a React Native Expo application demonstrating integration with the Qualt
 
 ## Key Files
 
-### `integrations/QualtricsWrapper.ts`
+### `src/integrations/QualtricsWrapper.ts`
 
-TypeScript wrapper providing:
-
-- Promise-based and callback-based APIs
-- Automatic initialization management
-- Type-safe interfaces
-- Error handling
+TypeScript wrapper for Qualtrics SDK.
 
 ### `app/_layout.tsx`
 
@@ -55,3 +50,19 @@ Root application layout that:
 - Initializes SDK on app start
 - Tracks route changes automatically
 - Triggers evaluation on screen visits
+
+## Setting up the Intercept
+
+We suggest testing the example applications using the Intercept with Display/Targeting Logic set up to:
+
+> If Time Spent in App Greater Than 10 Seconds
+
+That way, the intercept will show when using the "Display Intercept" button after spending 10 seconds in the app.
+
+You can check out the [Qualtrics Documentation](https://api.qualtrics.com/f23ebb864cba1-getting-started-with-react-native-sdk) for more information on how to set up the Display Logic.
+
+## Issues / Support
+
+For help on the Qualtrics SDK, you will want to reach out to our support team via our [Support Portal](https://www.qualtrics.com/support/). If you do not have a login, please work with your brand admin to file a support ticket.
+
+We do not take support requests or community PRs through GitHub.

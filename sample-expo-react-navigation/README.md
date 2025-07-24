@@ -40,12 +40,7 @@ This is a React Native Expo application demonstrating integration with the Qualt
 
 ### `src/integrations/QualtricsWrapper.ts`
 
-TypeScript wrapper providing:
-
-- Promise-based and callback-based APIs
-- Automatic initialization management
-- Type-safe interfaces
-- Error handling
+TypeScript wrapper for Qualtrics SDK.
 
 ### `src/App.tsx`
 

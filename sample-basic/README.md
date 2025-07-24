@@ -36,6 +36,19 @@ This is a basic React Native application demonstrating integration with the Qual
    npx run android
    ```
 
+## Key Files
+
+### `integrations/QualtricsWrapper.ts`
+
+TypeScript wrapper for Qualtrics SDK.
+
+### `App.tsx`
+
+Root application that:
+
+- Configures Qualtrics project information
+- Triggers evaluation based on button click
+
 ## Setting up the Intercept
 
 We suggest testing the example applications using the Intercept with Display/Targeting Logic set up to:

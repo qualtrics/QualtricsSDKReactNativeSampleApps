@@ -38,7 +38,7 @@ This is a React Native Expo application demonstrating integration with the Qualt
 
 ## Key Files
 
-### `utils/QualtricsWrapper.ts`
+### `integrations/QualtricsWrapper.ts`
 
 TypeScript wrapper providing:
 

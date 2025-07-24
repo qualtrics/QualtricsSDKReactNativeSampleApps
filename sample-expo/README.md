@@ -12,7 +12,7 @@ This is a React Native Expo application demonstrating integration with the Qualt
 
 2. **Configure your Qualtrics project**
 
-   Edit `constans/QualtricsConfig.ts` and replace the placeholder values:
+   Edit `constants/QualtricsConfig.ts` and replace the placeholder values:
 
    ```typescript
     export const QualtricsProjectInfo = {

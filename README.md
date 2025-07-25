@@ -4,18 +4,9 @@ In this repository you will find sample Apps with Qualtrics React Native SDK.
 
 ## Structure
 
+- **sample-basic/** - React Native SDK integration sample without framework.
 - **sample-expo/** - Expo Router SDK integration sample.
 - **sample-expo-react-navigation/** - Expo with React Navigation SDK integration sample.
-
-## Setting up the Intercept
-
-We suggest testing the example applications using the Intercept with Display/Targeting Logic set up to:
-
-> If View Count Total Views Greater Than or Equal to 1
-
-That way, the intercept will show with every call of `registerViewVisit` making it easy to test.
-
-You can check out the [Qualtrics Documentation](https://api.qualtrics.com/f23ebb864cba1-getting-started-with-react-native-sdk) for more information on how to set up the Display Logic.
 
 ## Issues / Support
 

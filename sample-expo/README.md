@@ -55,9 +55,9 @@ Root application layout that:
 
 We suggest testing the example applications using the Intercept with Display/Targeting Logic set up to:
 
-> If Time Spent in App Greater Than 10 Seconds
+> If View Count Total Views Greater Than or Equal to 1
 
-That way, the intercept will show when using the "Display Intercept" button after spending 10 seconds in the app.
+That way, the intercept will show with every call of `registerViewVisit` making it easy to test.
 
 You can check out the [Qualtrics Documentation](https://api.qualtrics.com/f23ebb864cba1-getting-started-with-react-native-sdk) for more information on how to set up the Display Logic.
 

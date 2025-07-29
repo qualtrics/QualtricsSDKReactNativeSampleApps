@@ -19,6 +19,7 @@ function App() {
       projectID: QualtricsProjectInfo.projectID,
     });
   }, []);
+  
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />

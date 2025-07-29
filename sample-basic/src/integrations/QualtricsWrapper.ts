@@ -74,31 +74,32 @@ const ensureProjectIsInitialized = async (): Promise<void> => {
 
   if (!isProjectInitialized) {
     console.log("Project not initialized. Initializing...");
-    await initialize().catch(console.error);
+    try {
+      await initialize();
+    } catch (error) {
+      console.error("Qualtrics initialization failed:", error);
+      throw error;
+    }
   }
 };
 
 /**
- * Evaluate project and automatically display intercepts that pass targeting conditions
+ * Evaluate and display intercept by ID
  * IMPORTANT: If a project is not initialized, this function will try to initialize it before evaluating.
+ * @param interceptID - The ID of the intercept to display
  */
-export const evaluateAndDisplayProject = async () => {
+export const evaluateAndDisplayIntercept = async (interceptID: string) => {
   await ensureProjectIsInitialized();
-
-  Qualtrics.evaluateProject((targetingResults) => {
-    console.log(targetingResults);
-    for (let intercept in targetingResults) {
-      const result = targetingResults[intercept];
-      if (result.passed) {
-        Qualtrics.display();
-      }
+  Qualtrics.evaluateIntercept(interceptID, (result) => {
+    console.log("Intercept result:", result);
+    if (result.passed) {
+      Qualtrics.displayIntercept(interceptID).catch((error) => {
+        console.error("Error displaying intercept:", error);
+      });
     }
   });
-}; 
+};
 
-/**
- * Register a view visit for targeting logic
- */
 export const registerViewVisit = (viewName: string) => {
   Qualtrics.registerViewVisit(viewName);
 };

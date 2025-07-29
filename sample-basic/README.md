@@ -1,6 +1,6 @@
-# Qualtrics React Native Sample App (Expo)
+# Qualtrics React Native Sample App (Basic)
 
-This is a React Native Expo application demonstrating integration with the Qualtrics Mobile SDK for surveys and app feedback.
+This is a basic React Native application demonstrating integration with the Qualtrics Mobile SDK for surveys and app feedback.
 
 ## Quick Start
 
@@ -12,52 +12,50 @@ This is a React Native Expo application demonstrating integration with the Qualt
 
 2. **Configure your Qualtrics project**
 
-   Edit `constants/QualtricsConfig.ts` and replace the placeholder values:
+   Edit `constans/QualtricsConfig.ts` and replace the placeholder values:
 
    ```typescript
-    export const QualtricsProjectInfo = {
-      brandID: '', // Replace with your actual Brand ID
-      projectID: '', // Replace with your actual Project ID\
-      extRefId: '', // Optional external reference ID
-    };
+   export const QualtricsProjectInfo = {
+     brandID: '', // Replace with your actual Brand ID
+     projectID: '', // Replace with your actual Project ID
+   };
+
+   export const interceptID = ''; // Replace with your Intercept ID
    ```
 
 3. **Run the app**
 
    ```bash
-
-   # Start development server
-   npx expo start
+   # Install pods for iOS
+   cd ios && pod install && cd ..
    
    # Run on iOS simulator
-   npx expo run:ios
+   npx run ios
    
    # Run on Android emulator  
-   npx expo run:android
+   npx run android
    ```
 
 ## Key Files
 
-### `src/integrations/QualtricsWrapper.ts`
+### `integrations/QualtricsWrapper.ts`
 
 TypeScript wrapper for Qualtrics SDK.
 
-### `app/_layout.tsx`
+### `App.tsx`
 
-Root application layout that:
+Root application that:
 
 - Configures Qualtrics project information
-- Initializes SDK on app start
-- Tracks route changes automatically
-- Triggers evaluation on screen visits
+- Triggers evaluation based on button click
 
 ## Setting up the Intercept
 
 We suggest testing the example applications using the Intercept with Display/Targeting Logic set up to:
 
-> If View Count Total Views Greater Than or Equal to 1
+> If Time Spent in App Greater Than 10 Seconds
 
-That way, the intercept will show with every call of `registerViewVisit` making it easy to test.
+That way, the intercept will show when using the "Display Intercept" button after spending 10 seconds in the app.
 
 You can check out the [Qualtrics Documentation](https://api.qualtrics.com/f23ebb864cba1-getting-started-with-react-native-sdk) for more information on how to set up the Display Logic.
 

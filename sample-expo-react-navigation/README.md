@@ -36,16 +36,21 @@ This is a React Native Expo application demonstrating integration with the Qualt
    npx expo run:android
    ```
 
+## Setting up the Intercept
+
+We suggest testing the example applications using the Intercept with Display/Targeting Logic set up to:
+
+> If View Count Total Views Greater Than or Equal to 1
+
+That way, the intercept will show with every call of `registerViewVisit` making it easy to test.
+
+You can check out the [Qualtrics Documentation](https://api.qualtrics.com/f23ebb864cba1-getting-started-with-react-native-sdk) for more information on how to set up the Display Logic.
+
 ## Key Files
 
 ### `src/integrations/QualtricsWrapper.ts`
 
-TypeScript wrapper providing:
-
-- Promise-based and callback-based APIs
-- Automatic initialization management
-- Type-safe interfaces
-- Error handling
+TypeScript wrapper for Qualtrics SDK.
 
 ### `src/App.tsx`
 

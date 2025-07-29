@@ -6,7 +6,7 @@ import {
 } from "@react-navigation/native";
 import { Asset } from "expo-asset";
 import * as SplashScreen from "expo-splash-screen";
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import { useColorScheme } from "react-native";
 import { Navigation } from "@/navigation";
 import * as Qualtrics from "@/integrations/QualtricsWrapper";
@@ -24,7 +24,10 @@ export function App() {
   const colorScheme = useColorScheme();
   const navigationRef = useNavigationContainerRef();
   const routeNameRef = useRef<string | undefined>(undefined);
-  Qualtrics.setProjectInfo(QualtricsProjectInfo);
+  
+  useEffect(() => {
+    Qualtrics.setProjectInfo(QualtricsProjectInfo);
+  }, []);
 
   const theme = colorScheme === "dark" ? DarkTheme : DefaultTheme;
 
@@ -44,7 +47,9 @@ export function App() {
         }
 
         routeNameRef.current = currentRouteName;
-        Qualtrics.evaluateAndDisplayProject();
+        Qualtrics.evaluateAndDisplayProject().catch(error =>
+          console.error("Failed to evaluate and display project:", error)
+        );
       }}
       theme={theme}
       linking={{

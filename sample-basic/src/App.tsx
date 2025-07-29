@@ -7,16 +7,18 @@
 
 import { TouchableOpacity, StatusBar, StyleSheet, useColorScheme, View, Text, SafeAreaView } from 'react-native';
 import * as Qualtrics from './integrations/QualtricsWrapper';
-import { interceptID, QualtricsProjectInfo } from './constans/QualtricsConfig';
+import { interceptID, QualtricsProjectInfo } from './constants/QualtricsConfig';
+import { useEffect } from 'react';
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
-  Qualtrics.setProjectInfo({
-    brandID: QualtricsProjectInfo.brandID,
-    projectID: QualtricsProjectInfo.projectID,
-  });
-  Qualtrics.registerViewVisit('Home');
 
+  useEffect(() => {
+    Qualtrics.setProjectInfo({
+      brandID: QualtricsProjectInfo.brandID,
+      projectID: QualtricsProjectInfo.projectID,
+    });
+  }, []);
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
@@ -40,7 +42,14 @@ function App() {
           </Text>
         </View>
 
-        <TouchableOpacity style={styles.button} onPress={() => Qualtrics.evaluateAndDisplayIntercept(interceptID)}>
+        <TouchableOpacity 
+          style={styles.button} 
+          onPress={() => 
+            Qualtrics.evaluateAndDisplayIntercept(interceptID).catch(error => 
+              console.error("Failed to evaluate and display intercept:", error)
+            )
+          }
+        >
           <Text style={styles.buttonText}>Display Intercept</Text>
         </TouchableOpacity>
       </View>

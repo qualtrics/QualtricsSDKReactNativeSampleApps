@@ -74,7 +74,12 @@ const ensureProjectIsInitialized = async (): Promise<void> => {
 
   if (!isProjectInitialized) {
     console.log("Project not initialized. Initializing...");
-    await initialize().catch(console.error);
+    try {
+      await initialize();
+    } catch (error) {
+      console.error("Qualtrics initialization failed:", error);
+      throw error;
+    }
   }
 };
 

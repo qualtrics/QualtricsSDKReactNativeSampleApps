@@ -13,16 +13,20 @@ export default function RootLayout() {
   const colorScheme = useColorScheme();
   const pathname = usePathname();
 
-  Qualtrics.setProjectInfo(QualtricsProjectInfo);
+  useEffect(() => {
+    Qualtrics.setProjectInfo(QualtricsProjectInfo);
+  }, []);
 
   // Track the screen change and evaluate the project
   useEffect(() => {
     Qualtrics.registerViewVisit(pathname);
-    Qualtrics.evaluateAndDisplayProject();
+    Qualtrics.evaluateAndDisplayProject().catch(error => 
+      console.error("Failed to evaluate and display project:", error)
+    );
   }, [pathname]);
 
   const [loaded] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+    SpaceMono: require('@assets/fonts/SpaceMono-Regular.ttf'),
   });
 
   if (!loaded) {

@@ -28,7 +28,7 @@ export default function HomeScreen() {
       <ThemedView style={styles.stepContainer}>
         <ThemedText type="subtitle">Testing Recommendation</ThemedText>
         <ThemedText>
-          Setup your credentials in the <ThemedText type="link">constans/QualtricsConfig.ts</ThemedText> file.
+          Set up your credentials in the <ThemedText type="link">constants/QualtricsConfig.ts</ThemedText> file.
         </ThemedText>
         <ThemedText>
           We suggest testing the example applications using the Intercept with Display/Targeting Logic 

@@ -29,7 +29,7 @@ function App() {
         <View style={styles.section}>
           <Text style={styles.subtitle}>Testing Recommendation</Text>
           <Text style={styles.text}>
-            Setup your credentials and intercept ID in <Text style={styles.link}>constants/QualtricsConfig.ts</Text>
+            Set up your credentials and intercept ID in <Text style={styles.link}>constants/QualtricsConfig.ts</Text>
           </Text>
           <Text style={styles.text}>
             We suggest testing the example applications using the Intercept with Display/Targeting Logic 

@@ -18,7 +18,7 @@ export function Home() {
       <View style={styles.stepContainer}>
         <Text style={styles.subtitle}>Testing Recommendation</Text>
         <Text style={styles.text}>
-          Setup your credentials in:
+          Set up your credentials in:
         </Text>
         <Text style={styles.link}>constants/QualtricsConfig.ts.</Text>
         <Text style={styles.text}>
